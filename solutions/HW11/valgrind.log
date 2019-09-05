@@ -1,0 +1,65 @@
+==8535== Memcheck, a memory error detector
+==8535== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==8535== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==8535== Command: ./hw11 exampleImages/RV2.bmp outputImages/outputRV2.bmp 3 2
+==8535== Parent PID: 8534
+==8535== 
+--8535-- 
+--8535-- Valgrind options:
+--8535--    --tool=memcheck
+--8535--    --verbose
+--8535--    --leak-check=full
+--8535--    --log-file=valgrind.log
+--8535-- Contents of /proc/version:
+--8535--   Linux version 2.6.32-754.6.3.el6.x86_64 (mockbuild@x86-032.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-23) (GCC) ) #1 SMP Tue Sep 18 10:29:08 EDT 2018
+--8535-- Arch and hwcaps: AMD64, amd64-sse3-cx16-lzcnt-avx2-bmi
+--8535-- Page sizes: currently 4096, max supported 4096
+--8535-- Valgrind library directory: /usr/lib64/valgrind
+--8535-- Reading syms from /home/shay/a/kefecik/Desktop/ECE264/solutions/HW11/hw11
+--8535-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--8535--    object doesn't have a dynamic symbol table
+--8535-- Reading syms from /lib64/ld-2.12.so
+--8535-- Scheduler: using generic scheduler lock implementation.
+--8535-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==8535== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-8535-by-kefecik-on-ee207lnx13.ecn.purdue.edu
+==8535== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-8535-by-kefecik-on-ee207lnx13.ecn.purdue.edu
+==8535== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-8535-by-kefecik-on-ee207lnx13.ecn.purdue.edu
+==8535== 
+==8535== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==8535== don't want to do, unless you know exactly what you're doing,
+==8535== or are doing some strange experiment):
+==8535==   /usr/lib64/valgrind/../../bin/vgdb --pid=8535 ...command...
+==8535== 
+==8535== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==8535==   /path/to/gdb ./hw11
+==8535== and then give GDB the following command
+==8535==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=8535
+==8535== --pid is optional if only one valgrind process is running
+==8535== 
+--8535-- REDIR: 0x3aae417f90 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--8535-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--8535-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--8535-- REDIR: 0x3aae417da0 (index) redirected to 0x4a07c30 (index)
+--8535-- REDIR: 0x3aae417e20 (strcmp) redirected to 0x4a08570 (strcmp)
+--8535-- Reading syms from /lib64/libc-2.12.so
+--8535-- REDIR: 0x3aae884d10 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--8535-- REDIR: 0x3aae886fd0 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--8535-- REDIR: 0x3aae882c80 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--8535-- REDIR: 0x3aae87aa50 (malloc) redirected to 0x4a069ac (malloc)
+--8535-- REDIR: 0x3aae8896b0 (memcpy) redirected to 0x4a08b60 (memcpy)
+--8535-- REDIR: 0x3aae88ab30 (strchrnul) redirected to 0x4a09fb0 (strchrnul)
+--8535-- REDIR: 0x3aae87b8b0 (free) redirected to 0x4a063a9 (free)
+--8535-- REDIR: 0x3aae884540 (mempcpy) redirected to 0x4a0a020 (mempcpy)
+==8535== 
+==8535== HEAP SUMMARY:
+==8535==     in use at exit: 0 bytes in 0 blocks
+==8535==   total heap usage: 8 allocs, 8 frees, 33,178,922 bytes allocated
+==8535== 
+==8535== All heap blocks were freed -- no leaks are possible
+==8535== 
+==8535== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 8 from 6)
+--8535-- 
+--8535-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--8535-- used_suppression:      4 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==8535== 
+==8535== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 8 from 6)

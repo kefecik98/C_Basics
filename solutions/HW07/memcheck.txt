@@ -1,0 +1,215 @@
+==22747== Memcheck, a memory error detector
+==22747== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==22747== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==22747== Command: ./hw07 Input/Test1 output1
+==22747== Parent PID: 22746
+==22747== 
+--22747-- 
+--22747-- Valgrind options:
+--22747--    --tool=memcheck
+--22747--    --log-file=memcheck.txt
+--22747--    --leak-check=full
+--22747--    --verbose
+--22747-- Contents of /proc/version:
+--22747--   Linux version 2.6.32-754.el6.x86_64 (mockbuild@x86-033.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-23) (GCC) ) #1 SMP Thu May 24 18:18:25 EDT 2018
+--22747-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--22747-- Page sizes: currently 4096, max supported 4096
+--22747-- Valgrind library directory: /usr/lib64/valgrind
+--22747-- Reading syms from /home/shay/a/kefecik/Desktop/ECE264/solutions/HW07/hw07
+--22747-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--22747--    object doesn't have a dynamic symbol table
+--22747-- Reading syms from /lib64/ld-2.12.so
+--22747--   Considering /usr/lib/debug/.build-id/1c/c2165e019d43f71fde0a47af9f4c8eb5e51963.debug ..
+--22747--   .. build-id is valid
+--22747-- Scheduler: using generic scheduler lock implementation.
+--22747-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==22747== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-22747-by-kefecik-on-ecegrid-thin3.ecn.purdue.edu
+==22747== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-22747-by-kefecik-on-ecegrid-thin3.ecn.purdue.edu
+==22747== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-22747-by-kefecik-on-ecegrid-thin3.ecn.purdue.edu
+==22747== 
+==22747== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==22747== don't want to do, unless you know exactly what you're doing,
+==22747== or are doing some strange experiment):
+==22747==   /usr/lib64/valgrind/../../bin/vgdb --pid=22747 ...command...
+==22747== 
+==22747== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==22747==   /path/to/gdb ./hw07
+==22747== and then give GDB the following command
+==22747==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=22747
+==22747== --pid is optional if only one valgrind process is running
+==22747== 
+--22747-- REDIR: 0x3062217f90 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--22747-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--22747-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--22747-- REDIR: 0x3062217da0 (index) redirected to 0x4a07c30 (index)
+--22747-- REDIR: 0x3062217e20 (strcmp) redirected to 0x4a08570 (strcmp)
+--22747-- Reading syms from /lib64/libc-2.12.so
+--22747--   Considering /usr/lib/debug/.build-id/8e/3aace76351b6a83390ca065e904eb82fbd1ec7.debug ..
+--22747--   .. build-id is valid
+--22747-- REDIR: 0x3062684d10 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--22747-- REDIR: 0x3062686fd0 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--22747-- REDIR: 0x3062682c80 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--22747-- REDIR: 0x306267aa50 (malloc) redirected to 0x4a069ac (malloc)
+--22747-- REDIR: 0x306267b8b0 (free) redirected to 0x4a063a9 (free)
+--22747-- REDIR: 0x306268ab30 (strchrnul) redirected to 0x4a09fb0 (strchrnul)
+==22747== 
+==22747== HEAP SUMMARY:
+==22747==     in use at exit: 136 bytes in 18 blocks
+==22747==   total heap usage: 21 allocs, 3 frees, 1,312 bytes allocated
+==22747== 
+==22747== Searching for pointers to 18 not-freed blocks
+==22747== Checked 65,736 bytes
+==22747== 
+==22747== 4 bytes in 1 blocks are definitely lost in loss record 1 of 18
+==22747==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==22747==    by 0x40076A: merge (main.c:22)
+==22747==    by 0x400975: mergeSort (main.c:122)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x400B5D: main (main.c:178)
+==22747== 
+==22747== 4 bytes in 1 blocks are definitely lost in loss record 2 of 18
+==22747==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==22747==    by 0x40077F: merge (main.c:23)
+==22747==    by 0x400975: mergeSort (main.c:122)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x400B5D: main (main.c:178)
+==22747== 
+==22747== 4 bytes in 1 blocks are definitely lost in loss record 3 of 18
+==22747==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==22747==    by 0x40077F: merge (main.c:23)
+==22747==    by 0x400975: mergeSort (main.c:122)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x400B5D: main (main.c:178)
+==22747== 
+==22747== 4 bytes in 1 blocks are definitely lost in loss record 4 of 18
+==22747==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==22747==    by 0x40076A: merge (main.c:22)
+==22747==    by 0x400975: mergeSort (main.c:122)
+==22747==    by 0x40095E: mergeSort (main.c:120)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x400B5D: main (main.c:178)
+==22747== 
+==22747== 4 bytes in 1 blocks are definitely lost in loss record 5 of 18
+==22747==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==22747==    by 0x40077F: merge (main.c:23)
+==22747==    by 0x400975: mergeSort (main.c:122)
+==22747==    by 0x40095E: mergeSort (main.c:120)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x400B5D: main (main.c:178)
+==22747== 
+==22747== 4 bytes in 1 blocks are definitely lost in loss record 6 of 18
+==22747==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==22747==    by 0x40076A: merge (main.c:22)
+==22747==    by 0x400975: mergeSort (main.c:122)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x40095E: mergeSort (main.c:120)
+==22747==    by 0x400B5D: main (main.c:178)
+==22747== 
+==22747== 4 bytes in 1 blocks are definitely lost in loss record 7 of 18
+==22747==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==22747==    by 0x40077F: merge (main.c:23)
+==22747==    by 0x400975: mergeSort (main.c:122)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x40095E: mergeSort (main.c:120)
+==22747==    by 0x400B5D: main (main.c:178)
+==22747== 
+==22747== 4 bytes in 1 blocks are definitely lost in loss record 8 of 18
+==22747==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==22747==    by 0x40077F: merge (main.c:23)
+==22747==    by 0x400975: mergeSort (main.c:122)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x40095E: mergeSort (main.c:120)
+==22747==    by 0x400B5D: main (main.c:178)
+==22747== 
+==22747== 4 bytes in 1 blocks are definitely lost in loss record 9 of 18
+==22747==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==22747==    by 0x40076A: merge (main.c:22)
+==22747==    by 0x400975: mergeSort (main.c:122)
+==22747==    by 0x40095E: mergeSort (main.c:120)
+==22747==    by 0x40095E: mergeSort (main.c:120)
+==22747==    by 0x400B5D: main (main.c:178)
+==22747== 
+==22747== 4 bytes in 1 blocks are definitely lost in loss record 10 of 18
+==22747==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==22747==    by 0x40077F: merge (main.c:23)
+==22747==    by 0x400975: mergeSort (main.c:122)
+==22747==    by 0x40095E: mergeSort (main.c:120)
+==22747==    by 0x40095E: mergeSort (main.c:120)
+==22747==    by 0x400B5D: main (main.c:178)
+==22747== 
+==22747== 8 bytes in 1 blocks are definitely lost in loss record 11 of 18
+==22747==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==22747==    by 0x40076A: merge (main.c:22)
+==22747==    by 0x400975: mergeSort (main.c:122)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x400B5D: main (main.c:178)
+==22747== 
+==22747== 8 bytes in 1 blocks are definitely lost in loss record 12 of 18
+==22747==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==22747==    by 0x40077F: merge (main.c:23)
+==22747==    by 0x400975: mergeSort (main.c:122)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x400B5D: main (main.c:178)
+==22747== 
+==22747== 8 bytes in 1 blocks are definitely lost in loss record 13 of 18
+==22747==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==22747==    by 0x40076A: merge (main.c:22)
+==22747==    by 0x400975: mergeSort (main.c:122)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x40095E: mergeSort (main.c:120)
+==22747==    by 0x400B5D: main (main.c:178)
+==22747== 
+==22747== 8 bytes in 1 blocks are definitely lost in loss record 14 of 18
+==22747==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==22747==    by 0x40077F: merge (main.c:23)
+==22747==    by 0x400975: mergeSort (main.c:122)
+==22747==    by 0x40095E: mergeSort (main.c:120)
+==22747==    by 0x400B5D: main (main.c:178)
+==22747== 
+==22747== 12 bytes in 1 blocks are definitely lost in loss record 15 of 18
+==22747==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==22747==    by 0x40076A: merge (main.c:22)
+==22747==    by 0x400975: mergeSort (main.c:122)
+==22747==    by 0x400947: mergeSort (main.c:119)
+==22747==    by 0x400B5D: main (main.c:178)
+==22747== 
+==22747== 12 bytes in 1 blocks are definitely lost in loss record 16 of 18
+==22747==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==22747==    by 0x40076A: merge (main.c:22)
+==22747==    by 0x400975: mergeSort (main.c:122)
+==22747==    by 0x40095E: mergeSort (main.c:120)
+==22747==    by 0x400B5D: main (main.c:178)
+==22747== 
+==22747== 20 bytes in 1 blocks are definitely lost in loss record 17 of 18
+==22747==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==22747==    by 0x40076A: merge (main.c:22)
+==22747==    by 0x400975: mergeSort (main.c:122)
+==22747==    by 0x400B5D: main (main.c:178)
+==22747== 
+==22747== 20 bytes in 1 blocks are definitely lost in loss record 18 of 18
+==22747==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==22747==    by 0x40077F: merge (main.c:23)
+==22747==    by 0x400975: mergeSort (main.c:122)
+==22747==    by 0x400B5D: main (main.c:178)
+==22747== 
+==22747== LEAK SUMMARY:
+==22747==    definitely lost: 136 bytes in 18 blocks
+==22747==    indirectly lost: 0 bytes in 0 blocks
+==22747==      possibly lost: 0 bytes in 0 blocks
+==22747==    still reachable: 0 bytes in 0 blocks
+==22747==         suppressed: 0 bytes in 0 blocks
+==22747== 
+==22747== ERROR SUMMARY: 18 errors from 18 contexts (suppressed: 8 from 6)
+--22747-- 
+--22747-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--22747-- used_suppression:      4 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==22747== 
+==22747== ERROR SUMMARY: 18 errors from 18 contexts (suppressed: 8 from 6)

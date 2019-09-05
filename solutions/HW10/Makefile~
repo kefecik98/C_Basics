@@ -1,0 +1,35 @@
+TARGET = hw10
+GCC = gcc
+CFLAGS = -g -std=c99 -Wall -Wshadow -Wvla -Werror -pedantic
+CC = $(GCC) $(CFLAGS)
+
+SRCS = hw10.c bmpimage.c bmpfunc.c
+
+OBJS = $(SRCS:%.c=%.o)
+VALGRIND = valgrind --tool=memcheck --verbose --log-file
+
+TESTFLAGS = -DTEST_MAINFUNC -DTEST_FUNCGIVEN -DTEST_IMGTOGRAY -DTEST_HEADERVALID -DTEST_BMPOPENFILE -DTEST_BMPWRITEFUNC -DTEST_BMPFREEFUNC
+
+hw10: $(OBJS)
+	$(CC) $(TESTFLAGS) $(OBJS) -o hw10
+
+testmemory: $(TARGET)
+	$(VALGRIND)=./valgrind.log ./hw10
+
+test1: hw10
+	./hw10 exampleImages/CondProb.bmp outputImages/CondProbGray.bmp
+	diff expectedImages/expectedCondProb.bmp outputImages/CondProbGray.bmp
+test2: hw10
+	./hw10 exampleImages/RV.bmp outputImages/RVGray.bmp
+	diff expectedImages/expectedRV.bmp outputImages/RVGray.bmp
+test3: hw10
+	./hw10
+
+test4: hw10
+	./hw10
+
+.c.o:
+	$(CC) $(TESTFLAGS) -c $*.c
+
+clean:
+	rm -f $(OBJS) $(TARGET)
